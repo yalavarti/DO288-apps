@@ -28,6 +28,8 @@ pipeline {
                sh 'echo Hello from State 2 - Mahesh Y'
                 }
 
+        }
+
         // TODO: ADD A STAGE THAT SAYS HELLO
 
         // TODO: ADD AN APPROVAL STAGE
