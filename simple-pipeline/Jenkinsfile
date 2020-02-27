@@ -5,7 +5,7 @@ pipeline {
     }
     agent {
       node {
-        // TODO: run this simple pipeline on jenkins 'master' node
+         label 'master'
       }
     }
 
@@ -23,9 +23,22 @@ pipeline {
             }
         }
 
+        stage('stage 2') {
+            steps {
+               sh 'echo Hello from State 2 - Mahesh Y'
+                }
+
         // TODO: ADD A STAGE THAT SAYS HELLO
 
         // TODO: ADD AN APPROVAL STAGE
+
+        stage('manual approval') {
+            steps {
+               timeout(time: 60, unit: 'MINUTES'){
+                    input message: "Move to state 3?"
+                }
+            }
+        }
 
         stage('stage 3') {
             steps {
